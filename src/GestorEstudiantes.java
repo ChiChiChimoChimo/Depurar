@@ -10,7 +10,12 @@ public class GestorEstudiantes {
         for (int i = 0; i < estudiante.getNotas().length; i++) { // Error solucionado (i <= estudiante.getNotas().length) -> (i < estudiante.get...)
             suma += estudiante.getNotas()[i];
         }
-        return suma / estudiante.getNotas().length; // Error si el array está vacío
+        if (suma != 0) {
+            return suma / estudiante.getNotas ( ).length; // Error solucionado (If que comprueba si esta vaco
+        }
+        else {
+            return 0;
+        }
     }
 
     // Encuentra al estudiante con la mejor nota media
@@ -25,7 +30,9 @@ public class GestorEstudiantes {
                 mejor = estudiante;
             }
         }
-        return mejor; // Error si la lista está vacía
+        if (mejor == null) {
+            throw new NullPointerException("No se encontrado estudiantes.");
+        } else { return mejor;}
     }
 
     // Guarda los resultados en un fichero
